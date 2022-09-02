@@ -2,8 +2,14 @@
 
 namespace Cohen_PE3
 {
-    internal class Program
+    // Author: Maffie Cohen
+    // Purpose: returns the product of 4 user-chosen integers
+    // Restrictions: 
+    static class Program
     {
+        
+        // Purpose: writes the product or an error to the console
+        // Restrictions:
         static void Main(string[] args)
         {
             if (args.Length < 4)
