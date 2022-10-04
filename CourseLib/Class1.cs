@@ -16,10 +16,10 @@ namespace CourseLib
     public class Courses
     {
         public SortedList<string,Course> sortedList = new SortedList<string,Course>();
-        public Course this[string couseCode]
+        public Course this[string courseCode]
         {
-            get { return sortedList[couseCode]; }
-            set { sortedList[couseCode] = value; }
+            get { return sortedList[courseCode]; }
+            set { sortedList[courseCode] = value; }
         }
         
         
