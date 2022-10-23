@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -26,11 +26,45 @@ namespace Cohen_PE13
                 {
                     if (rand.Next(0, 2) == 0)
                     {
-                        pets.Add(new Dog("1234567", "Maffie", 8));
+                        Console.WriteLine("You bought a dog!");
+
+                        Console.Write("Dog's Name => ");
+                        string sName = Console.ReadLine();
+
+                        int nAge;
+                        do
+                        {
+                            Console.Write("Age => ");
+                            string sAge = Console.ReadLine();
+                            if ( int.TryParse(sAge, out nAge) ) break ;
+                        } while (true);
+
+                        Console.Write("License => ");
+                        string sLicense = Console.ReadLine();
+
+                        pets.Add(new Dog(sLicense, sName, nAge));
+
                     }
                     else
                     {
-                        pets.Add(new Cat());
+                        Console.WriteLine("You bought a cat!");
+
+                        Cat thisCat = new Cat();
+                        Console.Write("Cat's Name => ");
+                        string sName = Console.ReadLine();
+
+                        int nAge;
+                        do
+                        {
+                            Console.Write("Age => ");
+                            string sAge = Console.ReadLine();
+                            if (int.TryParse(sAge, out nAge)) break;
+                        } while (true);
+
+                        thisCat.Name = sName;
+                        thisCat.age = nAge;
+
+                        pets.Add(thisCat);
                     }
                 }
                 else
@@ -101,7 +135,7 @@ namespace Cohen_PE13
         void Purr();
         void GotoVet();
     }
-    
+
     public interface IDog
     {
         void Eat();
@@ -155,7 +189,7 @@ namespace Cohen_PE13
 
             set
             {
-                if( nPetEl < petList.Count)
+                if (nPetEl < petList.Count)
                 {
                     petList[nPetEl] = value;
                 }
@@ -166,7 +200,7 @@ namespace Cohen_PE13
             }
         }
 
-        public int Count { get; }
+        public int Count { get { return petList.Count; } }
 
         public void Add(Pet pet)
         {
@@ -205,7 +239,8 @@ namespace Cohen_PE13
             Console.WriteLine("{0} went to the vet. It went surprisingly well actually.", Name);
         }
 
-        public Cat() : base() {
+        public Cat() : base()
+        {
             Name = "test";
         }
     }
