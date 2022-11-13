@@ -3,9 +3,8 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using System.Windows.Forms;
-using PeopleLib;
 
-namespace EditPerson
+namespace CourseList
 {
     static class Program
     {
@@ -17,9 +16,7 @@ namespace EditPerson
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Person student = new Student();
-
-            Application.Run(new PersonEditForm(student,null));
+            Application.Run(new CourseListForm());
         }
     }
 }
