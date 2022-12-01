@@ -14,6 +14,33 @@ namespace FromHell
     {
         private int selection;
         public int Selection { get { return selection; } }
+
+        private Cat[] cats = new Cat[]
+        {
+            new Cat("Alma", Color.ORANGE, Sillyness.QUIRKY),
+            new Cat("Bongo", Color.WHITE, Sillyness.NORMAL),
+            new Cat("Boopy", Color.BROWN, Sillyness.SILLY),
+            new Cat("Damien", Color.ORANGE, Sillyness.NORMAL),
+            new Cat("Death", Color.WHITE, Sillyness.NORMAL),
+            new Cat("Dirt", Color.BROWN | Color.WHITE, Sillyness.QUIRKY),
+            new Cat("Douglas", Color.GREY, Sillyness.QUIRKY),
+            new Cat("Eepy", Color.GREY, Sillyness.NORMAL),
+            new Cat("Fart", Color.GREY, Sillyness.SILLY),
+            new Cat("Guh", Color.GREY | Color.WHITE, Sillyness.SILLY),
+            new Cat("Hehe", Color.BROWN, Sillyness.SILLY),
+            new Cat("Milly", Color.ORANGE, Sillyness.NORMAL),
+            new Cat("Mr. Mustache", Color.BLACK | Color.WHITE, Sillyness.QUIRKY),
+            new Cat("Orpy", Color.ORANGE, Sillyness.NORMAL),
+            new Cat("Pierce", Color.GREY | Color.WHITE, Sillyness.NORMAL),
+            new Cat("Scug", Color.GREY | Color.WHITE, Sillyness.SILLY),
+            new Cat("Tina", Color.WHITE, Sillyness.NORMAL),
+            new Cat("Toe", Color.GREY, Sillyness.SILLY),
+            new Cat("Weewoo", Color.BROWN | Color.WHITE, Sillyness.SILLY),
+            new Cat("Winky", Color.BROWN, Sillyness.NORMAL),
+            new Cat("Worm", Color.WHITE, Sillyness.QUIRKY)
+        };
+        public Cat[] Cats { get { return cats; } }
+
         public Form1()
         {
             InitializeComponent();
@@ -65,7 +92,7 @@ namespace FromHell
         // disable this form, show filters
         private void FiltersButton__Click(object sender, EventArgs e)
         {
-            FiltersForm filter = new FiltersForm(selection);
+            FiltersForm filter = new FiltersForm(selection, Cats);
             filter.FormClosed += new FormClosedEventHandler(FiltersForm__Close);
             Enabled = false;
             filter.Show();
@@ -96,7 +123,7 @@ namespace FromHell
             Enabled = true;
             RosterForm roster = (RosterForm)sender;
             selection = roster.Selection;
-            String _thisSelection = roster.SelectedName.ToLower().Replace(". ", "_");
+            String _thisSelection = Cats[selection].Name.ToLower().Replace(". ", "_");
             String url = "https://people.rit.edu/mrc6113/201/cats/" + _thisSelection + ".jpeg";
             pictureBox.ImageLocation = url;
         }

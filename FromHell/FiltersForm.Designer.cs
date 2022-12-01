@@ -28,21 +28,23 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             this.fileSystemWatcher1 = new System.IO.FileSystemWatcher();
-            this.catGridGroupBox = new System.Windows.Forms.GroupBox();
             this.colorsGroupBox = new System.Windows.Forms.GroupBox();
-            this.orangeRadioButton = new System.Windows.Forms.RadioButton();
-            this.greyRadioButton = new System.Windows.Forms.RadioButton();
-            this.blackRadioButton = new System.Windows.Forms.RadioButton();
             this.whiteRadioButton = new System.Windows.Forms.RadioButton();
+            this.blackRadioButton = new System.Windows.Forms.RadioButton();
+            this.greyRadioButton = new System.Windows.Forms.RadioButton();
+            this.orangeRadioButton = new System.Windows.Forms.RadioButton();
             this.normalRadioButton = new System.Windows.Forms.RadioButton();
             this.sillyRadioButton = new System.Windows.Forms.RadioButton();
             this.quirkyRadioButton = new System.Windows.Forms.RadioButton();
             this.sillynessGroupBox = new System.Windows.Forms.GroupBox();
-            this.exitGroupBox = new System.Windows.Forms.GroupBox();
-            this.cancelButton = new System.Windows.Forms.Button();
-            this.selectButton = new System.Windows.Forms.Button();
             this.allRadioButton = new System.Windows.Forms.RadioButton();
+            this.exitGroupBox = new System.Windows.Forms.GroupBox();
+            this.selectButton = new System.Windows.Forms.Button();
+            this.cancelButton = new System.Windows.Forms.Button();
+            this.listView = new System.Windows.Forms.ListView();
+            this.imageList = new System.Windows.Forms.ImageList(this.components);
             ((System.ComponentModel.ISupportInitialize)(this.fileSystemWatcher1)).BeginInit();
             this.colorsGroupBox.SuspendLayout();
             this.sillynessGroupBox.SuspendLayout();
@@ -53,14 +55,6 @@
             // 
             this.fileSystemWatcher1.EnableRaisingEvents = true;
             this.fileSystemWatcher1.SynchronizingObject = this;
-            // 
-            // catGridGroupBox
-            // 
-            this.catGridGroupBox.Location = new System.Drawing.Point(305, 12);
-            this.catGridGroupBox.Name = "catGridGroupBox";
-            this.catGridGroupBox.Size = new System.Drawing.Size(483, 426);
-            this.catGridGroupBox.TabIndex = 0;
-            this.catGridGroupBox.TabStop = false;
             // 
             // colorsGroupBox
             // 
@@ -75,27 +69,16 @@
             this.colorsGroupBox.TabStop = false;
             this.colorsGroupBox.Text = "Color";
             // 
-            // orangeRadioButton
+            // whiteRadioButton
             // 
-            this.orangeRadioButton.AutoSize = true;
-            this.orangeRadioButton.Location = new System.Drawing.Point(7, 20);
-            this.orangeRadioButton.Name = "orangeRadioButton";
-            this.orangeRadioButton.Size = new System.Drawing.Size(60, 17);
-            this.orangeRadioButton.TabIndex = 0;
-            this.orangeRadioButton.TabStop = true;
-            this.orangeRadioButton.Text = "Orange";
-            this.orangeRadioButton.UseVisualStyleBackColor = true;
-            // 
-            // greyRadioButton
-            // 
-            this.greyRadioButton.AutoSize = true;
-            this.greyRadioButton.Location = new System.Drawing.Point(7, 44);
-            this.greyRadioButton.Name = "greyRadioButton";
-            this.greyRadioButton.Size = new System.Drawing.Size(47, 17);
-            this.greyRadioButton.TabIndex = 1;
-            this.greyRadioButton.TabStop = true;
-            this.greyRadioButton.Text = "Grey";
-            this.greyRadioButton.UseVisualStyleBackColor = true;
+            this.whiteRadioButton.AutoSize = true;
+            this.whiteRadioButton.Location = new System.Drawing.Point(7, 92);
+            this.whiteRadioButton.Name = "whiteRadioButton";
+            this.whiteRadioButton.Size = new System.Drawing.Size(53, 17);
+            this.whiteRadioButton.TabIndex = 3;
+            this.whiteRadioButton.TabStop = true;
+            this.whiteRadioButton.Text = "White";
+            this.whiteRadioButton.UseVisualStyleBackColor = true;
             // 
             // blackRadioButton
             // 
@@ -108,16 +91,27 @@
             this.blackRadioButton.Text = "Black";
             this.blackRadioButton.UseVisualStyleBackColor = true;
             // 
-            // whiteRadioButton
+            // greyRadioButton
             // 
-            this.whiteRadioButton.AutoSize = true;
-            this.whiteRadioButton.Location = new System.Drawing.Point(7, 92);
-            this.whiteRadioButton.Name = "whiteRadioButton";
-            this.whiteRadioButton.Size = new System.Drawing.Size(53, 17);
-            this.whiteRadioButton.TabIndex = 3;
-            this.whiteRadioButton.TabStop = true;
-            this.whiteRadioButton.Text = "White";
-            this.whiteRadioButton.UseVisualStyleBackColor = true;
+            this.greyRadioButton.AutoSize = true;
+            this.greyRadioButton.Location = new System.Drawing.Point(7, 44);
+            this.greyRadioButton.Name = "greyRadioButton";
+            this.greyRadioButton.Size = new System.Drawing.Size(47, 17);
+            this.greyRadioButton.TabIndex = 1;
+            this.greyRadioButton.TabStop = true;
+            this.greyRadioButton.Text = "Grey";
+            this.greyRadioButton.UseVisualStyleBackColor = true;
+            // 
+            // orangeRadioButton
+            // 
+            this.orangeRadioButton.AutoSize = true;
+            this.orangeRadioButton.Location = new System.Drawing.Point(7, 20);
+            this.orangeRadioButton.Name = "orangeRadioButton";
+            this.orangeRadioButton.Size = new System.Drawing.Size(60, 17);
+            this.orangeRadioButton.TabIndex = 0;
+            this.orangeRadioButton.TabStop = true;
+            this.orangeRadioButton.Text = "Orange";
+            this.orangeRadioButton.UseVisualStyleBackColor = true;
             // 
             // normalRadioButton
             // 
@@ -165,34 +159,6 @@
             this.sillynessGroupBox.TabStop = false;
             this.sillynessGroupBox.Text = "Sillyness";
             // 
-            // exitGroupBox
-            // 
-            this.exitGroupBox.Controls.Add(this.selectButton);
-            this.exitGroupBox.Controls.Add(this.cancelButton);
-            this.exitGroupBox.Location = new System.Drawing.Point(12, 136);
-            this.exitGroupBox.Name = "exitGroupBox";
-            this.exitGroupBox.Size = new System.Drawing.Size(275, 302);
-            this.exitGroupBox.TabIndex = 5;
-            this.exitGroupBox.TabStop = false;
-            // 
-            // cancelButton
-            // 
-            this.cancelButton.Location = new System.Drawing.Point(7, 273);
-            this.cancelButton.Name = "cancelButton";
-            this.cancelButton.Size = new System.Drawing.Size(75, 23);
-            this.cancelButton.TabIndex = 0;
-            this.cancelButton.Text = "Cancel";
-            this.cancelButton.UseVisualStyleBackColor = true;
-            // 
-            // selectButton
-            // 
-            this.selectButton.Location = new System.Drawing.Point(89, 272);
-            this.selectButton.Name = "selectButton";
-            this.selectButton.Size = new System.Drawing.Size(75, 23);
-            this.selectButton.TabIndex = 1;
-            this.selectButton.Text = "Select";
-            this.selectButton.UseVisualStyleBackColor = true;
-            // 
             // allRadioButton
             // 
             this.allRadioButton.AutoSize = true;
@@ -204,15 +170,59 @@
             this.allRadioButton.Text = "All";
             this.allRadioButton.UseVisualStyleBackColor = true;
             // 
+            // exitGroupBox
+            // 
+            this.exitGroupBox.Controls.Add(this.selectButton);
+            this.exitGroupBox.Controls.Add(this.cancelButton);
+            this.exitGroupBox.Location = new System.Drawing.Point(12, 136);
+            this.exitGroupBox.Name = "exitGroupBox";
+            this.exitGroupBox.Size = new System.Drawing.Size(275, 302);
+            this.exitGroupBox.TabIndex = 5;
+            this.exitGroupBox.TabStop = false;
+            // 
+            // selectButton
+            // 
+            this.selectButton.Location = new System.Drawing.Point(89, 272);
+            this.selectButton.Name = "selectButton";
+            this.selectButton.Size = new System.Drawing.Size(75, 23);
+            this.selectButton.TabIndex = 1;
+            this.selectButton.Text = "Select";
+            this.selectButton.UseVisualStyleBackColor = true;
+            // 
+            // cancelButton
+            // 
+            this.cancelButton.Location = new System.Drawing.Point(7, 273);
+            this.cancelButton.Name = "cancelButton";
+            this.cancelButton.Size = new System.Drawing.Size(75, 23);
+            this.cancelButton.TabIndex = 0;
+            this.cancelButton.Text = "Cancel";
+            this.cancelButton.UseVisualStyleBackColor = true;
+            // 
+            // listView
+            // 
+            this.listView.HideSelection = false;
+            this.listView.Location = new System.Drawing.Point(293, 12);
+            this.listView.Name = "listView";
+            this.listView.Size = new System.Drawing.Size(495, 426);
+            this.listView.TabIndex = 6;
+            this.listView.UseCompatibleStateImageBehavior = false;
+            this.listView.View = System.Windows.Forms.View.Tile;
+            // 
+            // imageList
+            // 
+            this.imageList.ColorDepth = System.Windows.Forms.ColorDepth.Depth8Bit;
+            this.imageList.ImageSize = new System.Drawing.Size(16, 16);
+            this.imageList.TransparentColor = System.Drawing.Color.Transparent;
+            // 
             // FiltersForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 450);
+            this.Controls.Add(this.listView);
             this.Controls.Add(this.exitGroupBox);
             this.Controls.Add(this.sillynessGroupBox);
             this.Controls.Add(this.colorsGroupBox);
-            this.Controls.Add(this.catGridGroupBox);
             this.Name = "FiltersForm";
             this.Text = "FiltersForm";
             ((System.ComponentModel.ISupportInitialize)(this.fileSystemWatcher1)).EndInit();
@@ -237,10 +247,11 @@
         private System.Windows.Forms.RadioButton blackRadioButton;
         private System.Windows.Forms.RadioButton greyRadioButton;
         private System.Windows.Forms.RadioButton orangeRadioButton;
-        private System.Windows.Forms.GroupBox catGridGroupBox;
         private System.Windows.Forms.GroupBox exitGroupBox;
         private System.Windows.Forms.Button selectButton;
         private System.Windows.Forms.Button cancelButton;
         private System.Windows.Forms.RadioButton allRadioButton;
+        private System.Windows.Forms.ListView listView;
+        private System.Windows.Forms.ImageList imageList;
     }
 }

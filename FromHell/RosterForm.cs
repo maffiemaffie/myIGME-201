@@ -15,17 +15,16 @@ namespace FromHell
         private int selection;
         public int Selection { get { return selection; } }
 
-        private String selectedName;
-        public String SelectedName { get { return selectedName; } }
+        private bool submit;
+        public bool Submit { get { return submit; } }
 
         public RosterForm(int _selection)
         {
             InitializeComponent();
 
             selection = _selection;
+            submit = false;
             listView.Items[selection].Selected = true;
-
-            // load names
 
             // listView selected index changed handler
             listView.SelectedIndexChanged += new EventHandler(ListView__SelectedIndexChanged);
@@ -48,7 +47,7 @@ namespace FromHell
             if (listView.SelectedItems.Count > 0)
             {
                 selection = listView.SelectedIndices[0];
-                selectedName = listView.Items[selection].Text;
+                String selectedName = listView.Items[selection].Text;
                 String thisSelection = selectedName.ToLower().Replace(". ", "_");
                 String url = "https://people.rit.edu/mrc6113/201/cats/" + thisSelection + ".jpeg";
                 pictureBox.ImageLocation = url;
@@ -67,6 +66,7 @@ namespace FromHell
         // close form, re-enable main
         private void SelectButton__Click(object sender, EventArgs e)
         {
+            submit = true;
             Close();
         }
     }

@@ -14,7 +14,7 @@ namespace FromHell
     {
         private int selection;
         public int Selection { get { return selection; } }
-        public FiltersForm(int _selection)
+        public FiltersForm(int _selection, Cat[] cats)
         {
             InitializeComponent();
 
@@ -24,6 +24,14 @@ namespace FromHell
             selectButton.Enabled = false;
 
             // load image buttons
+            foreach(Cat cat in cats)
+            {
+                String url = "https://people.rit.edu/mrc6113/201/cats/" + cat.Name.ToLower().Replace(". ", "_") + ".jpeg";
+                imageList.Images.Add(Image.FromFile(url));
+
+                ListViewItem item = new ListViewItem();
+                listView.Items.Add(item);
+            }
 
             // color handler
 
