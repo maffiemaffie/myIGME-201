@@ -26,8 +26,8 @@ namespace FromHell
             // load image buttons
             foreach(Cat cat in cats)
             {
-                String url = "https://people.rit.edu/mrc6113/201/cats/" + cat.Name.ToLower().Replace(". ", "_") + ".jpeg";
-                imageList.Images.Add(Image.FromFile(url));
+                String path = "images/" + cat.Name.ToLower().Replace(". ", "_") + ".jpeg";
+                imageList.Images.Add(Image.FromFile(path));
 
                 ListViewItem item = new ListViewItem();
                 listView.Items.Add(item);
