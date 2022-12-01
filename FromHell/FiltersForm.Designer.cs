@@ -42,6 +42,7 @@
             this.exitGroupBox = new System.Windows.Forms.GroupBox();
             this.cancelButton = new System.Windows.Forms.Button();
             this.selectButton = new System.Windows.Forms.Button();
+            this.allRadioButton = new System.Windows.Forms.RadioButton();
             ((System.ComponentModel.ISupportInitialize)(this.fileSystemWatcher1)).BeginInit();
             this.colorsGroupBox.SuspendLayout();
             this.sillynessGroupBox.SuspendLayout();
@@ -121,7 +122,7 @@
             // normalRadioButton
             // 
             this.normalRadioButton.AutoSize = true;
-            this.normalRadioButton.Location = new System.Drawing.Point(7, 21);
+            this.normalRadioButton.Location = new System.Drawing.Point(6, 21);
             this.normalRadioButton.Name = "normalRadioButton";
             this.normalRadioButton.Size = new System.Drawing.Size(58, 17);
             this.normalRadioButton.TabIndex = 3;
@@ -143,7 +144,7 @@
             // quirkyRadioButton
             // 
             this.quirkyRadioButton.AutoSize = true;
-            this.quirkyRadioButton.Location = new System.Drawing.Point(7, 44);
+            this.quirkyRadioButton.Location = new System.Drawing.Point(6, 44);
             this.quirkyRadioButton.Name = "quirkyRadioButton";
             this.quirkyRadioButton.Size = new System.Drawing.Size(55, 17);
             this.quirkyRadioButton.TabIndex = 1;
@@ -153,6 +154,7 @@
             // 
             // sillynessGroupBox
             // 
+            this.sillynessGroupBox.Controls.Add(this.allRadioButton);
             this.sillynessGroupBox.Controls.Add(this.normalRadioButton);
             this.sillynessGroupBox.Controls.Add(this.sillyRadioButton);
             this.sillynessGroupBox.Controls.Add(this.quirkyRadioButton);
@@ -191,6 +193,17 @@
             this.selectButton.Text = "Select";
             this.selectButton.UseVisualStyleBackColor = true;
             // 
+            // allRadioButton
+            // 
+            this.allRadioButton.AutoSize = true;
+            this.allRadioButton.Location = new System.Drawing.Point(6, 90);
+            this.allRadioButton.Name = "allRadioButton";
+            this.allRadioButton.Size = new System.Drawing.Size(36, 17);
+            this.allRadioButton.TabIndex = 4;
+            this.allRadioButton.TabStop = true;
+            this.allRadioButton.Text = "All";
+            this.allRadioButton.UseVisualStyleBackColor = true;
+            // 
             // FiltersForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -228,5 +241,6 @@
         private System.Windows.Forms.GroupBox exitGroupBox;
         private System.Windows.Forms.Button selectButton;
         private System.Windows.Forms.Button cancelButton;
+        private System.Windows.Forms.RadioButton allRadioButton;
     }
 }

@@ -20,12 +20,20 @@ namespace FromHell
             notifyIcon.Icon = SystemIcons.Information;
             timer.Interval = 1000;
 
-            // exitButton click handler
-            exitButton.Click += new EventHandler(ExitButton__Click);
-
             // start timer
             timer.Tick += new EventHandler(Timer__Tick);
             timer.Start();
+
+            // load media and details
+
+            // filtersButton click handler
+
+            // rosterButton click handler
+
+            // randomize click handler
+
+            // exitButton click handler
+            exitButton.Click += new EventHandler(ExitButton__Click);
         }
 
         // Timer__Tick event handler
@@ -42,5 +50,17 @@ namespace FromHell
         {
             Application.Exit();
         }
+
+        // load media and details
+        // load image, load info
+
+        // FiltersButton__Click
+        // disable this form, show filters
+
+        // RosterButton__Click
+        // disable this form, show filters
+
+        // GenerateButton__Click
+        // load media and details
     }
 }

@@ -15,6 +15,38 @@ namespace FromHell
         public FiltersForm()
         {
             InitializeComponent();
+
+            // disable select
+
+            // load image buttons
+
+            // color handler
+
+            // sillyness handler
+
+            // cancel handler
+
+            // select handler
+
+            // default sillyness to all
+
+            // default color to orange
         }
     }
+
+    // ImageButton__Click handler
+    // set picture
+    // enable select
+
+    // ColorRadioButton__CheckedChanged handler
+    // update grid
+
+    // SillynessRadioButton__CheckedChanged handler
+    // update grid
+
+    // CancelButton__Click handler
+    // close window, re-enable main
+
+    // SelectButton__click handler
+    // close window, re-enable main
 }
