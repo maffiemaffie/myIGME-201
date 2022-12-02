@@ -23,6 +23,8 @@ namespace FromHell
         private ThreadStart bounceStart;
         private BounceBox[] bounceBoxes;
 
+        private int tickCount = 0;
+
         private Cat[] cats = new Cat[]
         {
             new Cat("Alma", Color.ORANGE, Sillyness.QUIRKY),
@@ -95,6 +97,10 @@ namespace FromHell
         // show meowtification
         private void Timer__Tick(object sender, EventArgs e)
         {
+            if(++tickCount == 10)
+            {
+                timer.Tick -= new EventHandler(Timer__Tick);
+            }
             notifyIcon.Visible = true;
             notifyIcon.ShowBalloonTip(1000);
         }
