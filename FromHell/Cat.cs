@@ -18,9 +18,9 @@ namespace FromHell
 
     public enum Sillyness
     {
-        NORMAL,
-        QUIRKY,
-        SILLY
+        NORMAL  = 0b_0001,
+        QUIRKY  = 0b_0010,
+        SILLY   = 0b_0100
     }
     public class Cat
     {
