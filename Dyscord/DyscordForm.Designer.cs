@@ -38,21 +38,26 @@
             this.sendButton = new System.Windows.Forms.Button();
             this.usersButton = new System.Windows.Forms.Button();
             this.exitButton = new System.Windows.Forms.Button();
+            this.mainSplitContainer = new System.Windows.Forms.SplitContainer();
             this.groupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.splitContainer1)).BeginInit();
             this.splitContainer1.Panel1.SuspendLayout();
             this.splitContainer1.Panel2.SuspendLayout();
             this.splitContainer1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.mainSplitContainer)).BeginInit();
+            this.mainSplitContainer.Panel1.SuspendLayout();
+            this.mainSplitContainer.Panel2.SuspendLayout();
+            this.mainSplitContainer.SuspendLayout();
             this.SuspendLayout();
             // 
             // groupBox1
             // 
             this.groupBox1.Controls.Add(this.webBrowser1);
             this.groupBox1.Controls.Add(this.convoRichTextBox);
-            this.groupBox1.Dock = System.Windows.Forms.DockStyle.Top;
+            this.groupBox1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.groupBox1.Location = new System.Drawing.Point(0, 0);
             this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(800, 359);
+            this.groupBox1.Size = new System.Drawing.Size(800, 362);
             this.groupBox1.TabIndex = 0;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Conversation";
@@ -60,9 +65,10 @@
             // convoRichTextBox
             // 
             this.convoRichTextBox.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.convoRichTextBox.Enabled = false;
             this.convoRichTextBox.Location = new System.Drawing.Point(3, 16);
             this.convoRichTextBox.Name = "convoRichTextBox";
-            this.convoRichTextBox.Size = new System.Drawing.Size(794, 340);
+            this.convoRichTextBox.Size = new System.Drawing.Size(794, 343);
             this.convoRichTextBox.TabIndex = 0;
             this.convoRichTextBox.Text = "";
             // 
@@ -78,9 +84,9 @@
             // 
             // splitContainer1
             // 
-            this.splitContainer1.Dock = System.Windows.Forms.DockStyle.Bottom;
+            this.splitContainer1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.splitContainer1.FixedPanel = System.Windows.Forms.FixedPanel.Panel2;
-            this.splitContainer1.Location = new System.Drawing.Point(0, 365);
+            this.splitContainer1.Location = new System.Drawing.Point(0, 0);
             this.splitContainer1.Name = "splitContainer1";
             // 
             // splitContainer1.Panel1
@@ -94,7 +100,7 @@
             this.splitContainer1.Panel2.Controls.Add(this.sendButton);
             this.splitContainer1.Panel2.Controls.Add(this.loginButton);
             this.splitContainer1.Panel2.Controls.Add(this.userTextBox);
-            this.splitContainer1.Size = new System.Drawing.Size(800, 85);
+            this.splitContainer1.Size = new System.Drawing.Size(800, 84);
             this.splitContainer1.SplitterDistance = 456;
             this.splitContainer1.TabIndex = 1;
             // 
@@ -103,7 +109,7 @@
             this.messageTextBox.Dock = System.Windows.Forms.DockStyle.Fill;
             this.messageTextBox.Location = new System.Drawing.Point(0, 0);
             this.messageTextBox.Name = "messageTextBox";
-            this.messageTextBox.Size = new System.Drawing.Size(456, 85);
+            this.messageTextBox.Size = new System.Drawing.Size(456, 84);
             this.messageTextBox.TabIndex = 0;
             this.messageTextBox.Text = "";
             // 
@@ -151,13 +157,31 @@
             this.exitButton.Text = "Exit";
             this.exitButton.UseVisualStyleBackColor = true;
             // 
+            // mainSplitContainer
+            // 
+            this.mainSplitContainer.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.mainSplitContainer.IsSplitterFixed = true;
+            this.mainSplitContainer.Location = new System.Drawing.Point(0, 0);
+            this.mainSplitContainer.Name = "mainSplitContainer";
+            this.mainSplitContainer.Orientation = System.Windows.Forms.Orientation.Horizontal;
+            // 
+            // mainSplitContainer.Panel1
+            // 
+            this.mainSplitContainer.Panel1.Controls.Add(this.groupBox1);
+            // 
+            // mainSplitContainer.Panel2
+            // 
+            this.mainSplitContainer.Panel2.Controls.Add(this.splitContainer1);
+            this.mainSplitContainer.Size = new System.Drawing.Size(800, 450);
+            this.mainSplitContainer.SplitterDistance = 362;
+            this.mainSplitContainer.TabIndex = 2;
+            // 
             // DyscordForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 450);
-            this.Controls.Add(this.splitContainer1);
-            this.Controls.Add(this.groupBox1);
+            this.Controls.Add(this.mainSplitContainer);
             this.Name = "DyscordForm";
             this.Text = "Dyscord";
             this.groupBox1.ResumeLayout(false);
@@ -166,6 +190,10 @@
             this.splitContainer1.Panel2.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.splitContainer1)).EndInit();
             this.splitContainer1.ResumeLayout(false);
+            this.mainSplitContainer.Panel1.ResumeLayout(false);
+            this.mainSplitContainer.Panel2.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.mainSplitContainer)).EndInit();
+            this.mainSplitContainer.ResumeLayout(false);
             this.ResumeLayout(false);
 
         }
@@ -182,5 +210,6 @@
         private System.Windows.Forms.Button sendButton;
         private System.Windows.Forms.Button loginButton;
         private System.Windows.Forms.TextBox userTextBox;
+        private System.Windows.Forms.SplitContainer mainSplitContainer;
     }
 }
