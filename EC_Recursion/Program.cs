@@ -229,7 +229,7 @@ namespace EC_Recursion
             //    ++nSortedLength;
             //}
 
-            Sort(ref aUnsorted, ref aSorted, ref nSortedLength, getArrayValue);
+            Sort(aUnsorted, ref aSorted, ref nSortedLength, getArrayValue);
             
             // write out the sorted array
             for (int i = 0; i < nSortedLength; ++i)
@@ -270,6 +270,9 @@ namespace EC_Recursion
         // probably more what you were looking for
         static void Sort(ref double[] unsorted, ref double[] sorted, ref int sortedLength, getArrayValueDelegate del)
         {
+            // be done when we're done
+            if (unsorted.Length == 0) return;
+
             // get the lowest or highest value
             double thisValue = del(unsorted);
 
