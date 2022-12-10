@@ -183,9 +183,25 @@ namespace Final_Adjacency
         static private void Dijkstra()
         {
             Node start = nodes[(int)Color.RED];
+            Node current = start;
 
             start.minCost = 0;
-            List<Node> queue = ;
+            List<Node> visited = new List<Node>();
+            List<Node> queue = new List<Node>(nodes);
+
+            foreach (Edge edge in start.edges)
+            {
+                Node neighbor = edge.connection;
+                if (start.minCost + edge.cost < neighbor.minCost)
+                {
+                    neighbor.minCost = start.minCost + edge.cost;
+                }
+            }
+
+            queue.Remove(current);
+            visited.Add(current);
+
+            
         }
     }
 }
