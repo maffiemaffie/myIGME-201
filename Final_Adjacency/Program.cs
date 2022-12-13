@@ -15,6 +15,13 @@ namespace Final_Adjacency
             {
                 Console.WriteLine(color.ToString());
             }
+
+            Setup();
+            List<Node> path = Dijkstra(nodes[(int)Color.RED], nodes[(int)Color.GREEN]);
+            foreach (Node node in path)
+            {
+                Console.WriteLine((Color)node.color);
+            }
         }
 
         static bool[,] adjacencyMatrix = new bool[,]
@@ -180,12 +187,42 @@ namespace Final_Adjacency
             nodes[(int)Color.GREEN].edges.Sort();
         }
 
-        static private void Dijkstra()
+        static private List<Node> Dijkstra(Node start, Node end)
         {
-            Node start = nodes[(int)Color.RED];
-
             start.minCost = 0;
-            List<Node> queue = ;
+            
+            List<Node> queue = new List<Node>(nodes);
+
+            Node current = start;
+
+            do
+            {
+                foreach (Edge edge in current.edges)
+                {
+                    Node connection = edge.connection;
+                    if (connection.visited && (current.minCost + edge.cost < connection.minCost))
+                    {
+                        connection.minCost = current.minCost + edge.cost;
+                        connection.nearest = current;
+                    }
+                }
+                current.visited = true;
+                queue.Remove(current);
+                queue.Sort();
+                current = queue[0];
+
+                if (current == end) return TraceBack(end);
+
+            } while (queue.Count > 0);
+
+            return null;
+        }
+
+        static private List<Node> TraceBack(Node node)
+        {
+            List<Node> path = new List<Node>();
+            if (node.nearest != null) path.InsertRange(0, TraceBack(node.nearest));
+            return path;
         }
     }
 }
