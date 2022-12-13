@@ -3,20 +3,27 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Timers;
 
 namespace Cohen_PE13
 {
     static internal class Program
     {
+        public static Pets pets;
+
         static void Main(string[] args)
         {
+            Timer myTimer = new Timer(20000);
+            myTimer.Elapsed += new ElapsedEventHandler(Dog.EvictCat);
+            myTimer.Start();
+
             Pet thisPet = null;
             Dog dog = null;
             Cat cat = null;
             IDog iDog = null;
             ICat iCat = null;
 
-            Pets pets = new Pets();
+            pets = new Pets();
 
             Random rand = new Random();
 
@@ -239,6 +246,15 @@ namespace Cohen_PE13
             Console.WriteLine("{0} went to the vet. It went surprisingly well actually.", Name);
         }
 
+        public void Evicted()
+        {
+            Console.WriteLine("{0}: You can't eject me!! I'm ejecting you!", Name);
+            for (int i = 0; i < Program.pets.Count; i++)
+            {
+                if (Program.pets[i] is Dog) ((Dog)Program.pets[i]).Evicted();
+            }
+        }
+
         public Cat() : base()
         {
             Name = "test";
@@ -268,6 +284,38 @@ namespace Cohen_PE13
         public override void GotoVet()
         {
             Console.WriteLine("It took a little work, but you were able to coax {0} to visit the vet. They're still not thrilled but I'm proud of you", Name);
+        }
+
+        public static void EvictCat(object sender, ElapsedEventArgs e)
+        {
+            Dog dog = null;
+            Cat cat = null;
+
+            for (int i = 0; i < Program.pets.Count; i++)
+            {
+                if (Program.pets[i] is Dog)
+                {
+                    dog = ((Dog)Program.pets[i]);
+                }
+            }
+
+            for (int i = 0; i < Program.pets.Count; i++)
+            {
+                if (Program.pets[i] is Cat)
+                {
+                    cat = ((Cat)Program.pets[i]);
+                }
+            }
+
+            if (dog == null || cat == null) return;
+
+            Console.WriteLine("{0}: {1} has been ejected.", dog.Name, cat.Name);
+            cat.Evicted();
+        }
+
+        public void Evicted()
+        {
+            Console.WriteLine("{0} was the impostor.", Name);
         }
 
         public Dog(string szLicense, string szName, int nAge) : base(szName, nAge)
