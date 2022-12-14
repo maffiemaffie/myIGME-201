@@ -17,10 +17,10 @@ namespace Final_Adjacency
             }
 
             Setup();
-            List<Node> path = Dijkstra(nodes[(int)Color.RED], nodes[(int)Color.GREEN]);
+            List<Node> path = Dijkstra(nodes[(int)Color.BLUE], nodes[(int)Color.YELLOW]);
             foreach (Node node in path)
             {
-                Console.WriteLine((Color)node.color);
+                // Console.WriteLine((Color)node.color);
             }
         }
 
@@ -39,14 +39,14 @@ namespace Final_Adjacency
 
         static int[][] adjacencyList = new int[][]
         {
-            new int[] { 1, 3 },
-            new int[] { 2, 7 },
-            new int[] { 1, 3 },
-            new int[] { 2, 4 },
-            new int[] { 6 },
-            new int[] {},
-            new int[] { 7 },
-            new int[] { 5 }
+            new int[] { 1, 3 }, // red
+            new int[] { 7, 2 }, // blue
+            new int[] { 1, 3 }, // teal
+            new int[] { 2, 4 }, // grey
+            new int[] { 6 },    // orange
+            new int[] {},       // green
+            new int[] { 7 },    // purple
+            new int[] { 5 }     // yellow
         };
 
         public enum Color
@@ -79,7 +79,6 @@ namespace Final_Adjacency
                 if (!visited[(int)thisC])
                 {
                     colors.AddRange(DFSUtil(thisC, visited));
-                    return colors;
                 }
             }
             return colors;
@@ -139,9 +138,9 @@ namespace Final_Adjacency
                 new Node(Color.TEAL),
                 new Node(Color.GREY),
                 new Node(Color.ORANGE),
-                new Node(Color.PURPLE),
-                new Node(Color.YELLOW),
                 new Node(Color.GREEN),
+                new Node(Color.PURPLE),
+                new Node(Color.YELLOW)
             });
 
             nodes[(int)Color.RED].edges.AddRange(new List<Edge> {
@@ -200,7 +199,8 @@ namespace Final_Adjacency
                 foreach (Edge edge in current.edges)
                 {
                     Node connection = edge.connection;
-                    if (connection.visited && (current.minCost + edge.cost < connection.minCost))
+
+                    if (!connection.visited && (current.minCost + edge.cost < connection.minCost))
                     {
                         connection.minCost = current.minCost + edge.cost;
                         connection.nearest = current;
@@ -211,16 +211,14 @@ namespace Final_Adjacency
                 queue.Sort();
                 current = queue[0];
 
-                if (current == end) return TraceBack(end);
+            } while (queue.Count > 0 && current != end);
 
-            } while (queue.Count > 0);
-
-            return null;
+            return TraceBack(end);
         }
 
         static private List<Node> TraceBack(Node node)
         {
-            List<Node> path = new List<Node>();
+            List<Node> path = new List<Node>() { node };
             if (node.nearest != null) path.InsertRange(0, TraceBack(node.nearest));
             return path;
         }
