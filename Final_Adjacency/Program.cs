@@ -17,36 +17,37 @@ namespace Final_Adjacency
             }
 
             Setup();
-            List<Node> path = Dijkstra(nodes[(int)Color.BLUE], nodes[(int)Color.YELLOW]);
+            Console.WriteLine();
+            List<Node> path = Dijkstra(nodes[(int)Color.RED], nodes[(int)Color.GREEN]);
             foreach (Node node in path)
             {
-                // Console.WriteLine((Color)node.color);
+                Console.WriteLine((Color)node.color);
             }
         }
 
-        static bool[,] adjacencyMatrix = new bool[,]
+        static int[,] adjacencyMatrix = new int[,]
         {
             //  Red     Blue    Teal    Grey    Orange  Green   Purple  Yellow
-            {   false,  true,   false,  true,   false,  false,  false,  false   },  // red
-            {   false,  false,  true,   false,  false,  false,  false,  true    },  // blue
-            {   false,  true,   true,   false,  false,  false,  false,  false   },  // teal
-            {   false,  false,  false,  false,  true,   false,  false,  false   },  // grey
-            {   false,  false,  false,  false,  false,  false,  true,   false   },  // orange
-            {   false,  false,  false,  false,  false,  false,  false,  false   },  // green
-            {   false,  false,  false,  false,  false,  false,  false,  true    },  // purple
-            {   false,  false,  false,  false,  false,  true,   false,  false   }   // yellow
+            {   -1,     1,      -1,     5,      -1,     -1,     -1,     -1   },  // red
+            {   -1,     -1,     1,      -1,     -1,     -1,     -1,     8    },  // blue
+            {   -1,     1,      -1,     0,      -1,     -1,     -1,     -1   },  // teal
+            {   -1,     -1,     0,      -1,     1,      -1,     -1,     -1   },  // grey
+            {   -1,     -1,     -1,     -1,     -1,     -1,     1,      -1   },  // orange
+            {   -1,     -1,     -1,     -1,     -1,     -1,     -1,     -1   },  // green
+            {   -1,     -1,     -1,     -1,     -1,     -1,     -1,     1    },  // purple
+            {   -1,     -1,     -1,     -1,     -1,     6,      -1,     -1   }   // yellow
         };
 
         static int[][] adjacencyList = new int[][]
         {
-            new int[] { 1, 3 }, // red
-            new int[] { 7, 2 }, // blue
-            new int[] { 1, 3 }, // teal
-            new int[] { 2, 4 }, // grey
-            new int[] { 6 },    // orange
-            new int[] {},       // green
-            new int[] { 7 },    // purple
-            new int[] { 5 }     // yellow
+            new int[] { (int)Color.BLUE, (int)Color.GREY    },  // red
+            new int[] { (int)Color.YELLOW, (int)Color.TEAL  },  // blue
+            new int[] { (int)Color.BLUE, (int)Color.GREY    },  // teal
+            new int[] { (int)Color.TEAL, (int)Color.ORANGE  },  // grey
+            new int[] { (int)Color.PURPLE                   },  // orange
+            new int[] {                                     },  // green
+            new int[] { (int)Color.YELLOW                   },  // purple
+            new int[] { (int)Color.GREEN                    }   // yellow
         };
 
         public enum Color

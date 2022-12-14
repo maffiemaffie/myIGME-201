@@ -8,28 +8,37 @@ namespace FinalExam
 {
     public class MyStack
     {
-        private List<int> values;
-
-        public MyStack()
-        {
-            this.values = new List<int>();
-        }
+        public List<int> myStack = new List<int>();
 
         public void Push(int n)
         {
-            values.Add(n);
+            myStack.Add(n);
         }
 
-        public int Pop()
+        public int? Peek()
         {
-            int n = values[values.Count - 1];
-            values.RemoveAt(values.Count - 1);
-            return n;
+            if (myStack.Count > 0)
+            {
+                return myStack[myStack.Count - 1];
+            }
+            else
+            {
+                return null;
+            }
         }
 
-        public int Peek()
+        public int? Pop()
         {
-            return values[values.Count - 1];
+            if (myStack.Count > 0)
+            {
+                int? r = myStack[myStack.Count - 1];
+                myStack.RemoveAt(myStack.Count - 1);
+                return r;
+            }
+            else
+            {
+                return null;
+            }
         }
     }
 }

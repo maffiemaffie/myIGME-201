@@ -8,25 +8,37 @@ namespace FinalExam
 {
     public class MyQueue
     {
-        private List<int> values;
+        public List<int> myQueue = new List<int>();
 
-        public MyQueue ()
+        public void Push(int n)
         {
-            values = new List<int> ();
+            myQueue.Insert(0, n);
         }
 
-        public void Enqueue(int n) { values.Add (n); }
-
-        public int Dequeue()
+        public int? Peek()
         {
-            int n = values[0];
-            values.RemoveAt(0);
-            return n;
+            if (myQueue.Count > 0)
+            {
+                return myQueue[0];
+            }
+            else
+            {
+                return null;
+            }
         }
 
-        public int Peek()
+        public int? Pop()
         {
-            return values[0];
+            if (myQueue.Count > 0)
+            {
+                int? r = myQueue[0];
+                myQueue.RemoveAt(0);
+                return r;
+            }
+            else
+            {
+                return null;
+            }
         }
     }
 }
